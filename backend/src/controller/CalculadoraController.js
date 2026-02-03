@@ -3,7 +3,8 @@ const model = require ('../model/CalculadoraModelo')
 class CalculadoraController{
     
     static async salvar(req, resp) {
-        await model.save()
+        const modelo = new model(req.body)
+        await modelo.save()
         .then(resposta=>{
             return resp.status(200)
             .json(resposta)
